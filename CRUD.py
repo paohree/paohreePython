@@ -1,7 +1,7 @@
 # data crate ok!
 # data read ok!
 # file read ok!
-# data update
+# data update ok!
 # data delete
 # data file save
 def create(lists):
@@ -37,7 +37,15 @@ def read(lists):
     return
 
 
-def update():
+def update(lists):
+    want: int = int(input("몇번째 데이터를 수정하시겠습니까?"))
+    want = want-1
+    name = input("이름: ")
+    price = input("가격: ")
+    size = input("사이즈: ")
+    lists[want][0] = name
+    lists[want][1] = price
+    lists[want][2] = size
     return
 
 
@@ -63,7 +71,7 @@ def main():
                 sentence = get.readline()
                 if sentence == "":
                     break
-                print(sentence)
+                # print(sentence)
                 divided = sentence.split()
                 name = divided[0]
                 price = divided[1]
@@ -87,6 +95,8 @@ def main():
             print("완료했습니다. ")
         elif user == 3:
             print("Update를 입력하셨습니다.")
+            update(lists)
+            print("완료했습니다. ")
         elif user == 4:
             print("Delete를 입력하셨습니다. ")
         elif user == 5:
