@@ -2,7 +2,7 @@
 # data read ok!
 # file read ok!
 # data update ok!
-# data delete
+# data delete ok!
 # data file save
 def create(lists):
     item = []
@@ -40,16 +40,26 @@ def read(lists):
 def update(lists):
     want: int = int(input("몇번째 데이터를 수정하시겠습니까?"))
     want = want-1
+
     name = input("이름: ")
     price = input("가격: ")
     size = input("사이즈: ")
-    lists[want][0] = name
-    lists[want][1] = price
-    lists[want][2] = size
+    try:
+        lists[want][0] = name
+        lists[want][1] = price
+        lists[want][2] = size
+    except IndexError:
+        print("해당 번호의 데이터가 존재하지 않습니다. ")
     return
 
 
-def delete():
+def delete(lists):
+    want: int = int(input("몇번째 데이터를 삭제하시겠습니까? "))
+    want = want-1
+    try:
+        del lists[want]
+    except ValueError:
+        print("해당 번호의 데이터가 존재하지 않습니다. ")
     return
 
 
@@ -99,6 +109,8 @@ def main():
             print("완료했습니다. ")
         elif user == 4:
             print("Delete를 입력하셨습니다. ")
+            delete(lists)
+            print("완료했습니다. ")
         elif user == 5:
             print("Save를 입력하셨습니다. ")
         elif user == 6:
