@@ -1,3 +1,9 @@
+# data crate ok!
+# data read ok!
+# file read ok!
+# data update
+# data delete
+# data file save
 def create(lists):
     item = []
     name = input("이름: ")
@@ -46,6 +52,28 @@ def save():
 def main():
     user: int
     lists = []
+    try:
+        get = open("data.txt", 'r')
+    except FileNotFoundError:
+        print("data가 없습니다. ")
+    else:
+        if get:
+            while True:
+                item = []
+                sentence = get.readline()
+                if sentence == "":
+                    break
+                print(sentence)
+                divided = sentence.split()
+                name = divided[0]
+                price = divided[1]
+                size = divided[2]
+                item.append(name)
+                item.append(price)
+                item.append(size)
+                lists.append(item)
+            print("data를 읽어왔습니다.")
+            get.close()
     while True:
         print("1. Create \n2. Read \n3. Update\n4. Delete\n5. Save\n6. quit")
         user = int(input("무엇을 입력하시겠습니까? : "))
