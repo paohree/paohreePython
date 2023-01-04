@@ -39,7 +39,7 @@ def read(lists):
 
 def update(lists):
     want: int = int(input("몇번째 데이터를 수정하시겠습니까?"))
-    want = want-1
+    want = want - 1
 
     name = input("이름: ")
     price = input("가격: ")
@@ -55,7 +55,7 @@ def update(lists):
 
 def delete(lists):
     want: int = int(input("몇번째 데이터를 삭제하시겠습니까? "))
-    want = want-1
+    want = want - 1
     try:
         del lists[want]
     except ValueError:
@@ -63,7 +63,39 @@ def delete(lists):
     return
 
 
-def save():
+def save(lists):
+    saving = open('data.txt', 'w')
+    j: int = 0
+    i: int = 0
+    try:
+        if lists[i][j] != "":
+            while True:
+                while True:
+                    if j == 3:
+                        j = 0
+                        break
+                    if lists[i][j] == "":
+                        break
+                    else:
+                        saving.write(lists[i][j])
+                        if j != 2:
+                            saving.write(" ")
+                        else:
+                            saving.write("\n")
+                        j = j + 1
+                i = i + 1
+                try:
+                    if lists[i][j] == "":
+                        i = i + 1
+                except IndexError:
+                    print("파일 쓰기를 완료했습니다. ")
+                    saving.close()
+                    break
+                else:
+                    continue
+    except IndexError:
+        print("리스트에 아무것도 없습니다. ")
+        saving.close()
     return
 
 
@@ -113,6 +145,8 @@ def main():
             print("완료했습니다. ")
         elif user == 5:
             print("Save를 입력하셨습니다. ")
+            save(lists)
+            print("완료했습니다. ")
         elif user == 6:
             print("장비를 정지합니다.")
             break
