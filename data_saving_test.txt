@@ -1,0 +1,6 @@
+paduck 100000 big
+pikachu 99999 middle
+mu 1000000 small
+파이리 123123 middle
+꼬부기 456456456 middle
+잠만보 789789789 big
