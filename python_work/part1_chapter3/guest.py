@@ -22,6 +22,10 @@ print(f"So sorry to say this to you, {poped_person.title()}. there is no empyt s
 print(guest)
 print(f"I have seat for you, {guest[0].title()}.")
 print(f"I have seat for you, {guest[1].title()}.")
+
+length=len(guest)
+print(f"The number of guests is {length}")
+
 del guest[0]
 print(guest)
 del guest[0]
