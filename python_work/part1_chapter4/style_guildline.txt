@@ -1,0 +1,7 @@
+indentations are 4 space. be careful when use tab.
+
+line length < 80 or 72 or something else
+
+blank lines. do not use blank too frequently
+
+check PEP8. https://peps.python.org/pep-0008/
