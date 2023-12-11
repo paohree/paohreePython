@@ -1,0 +1,30 @@
+<!-- 이 문서의 전체적인 구조를 정의하는 <!DOCTYPE html> 선언 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 페이지의 메타 정보를 설정하는 <head> 태그 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 웹 페이지의 제목을 정의 -->
+    <title>Counter App</title>
+    <!-- 스타일시트, 스크립트 등 외부 파일을 연결할 때 사용하는 <link> 또는 <script> 태그를 여기에 포함할 수 있음 -->
+</head>
+<body>
+    <!-- 웹 페이지의 본문 내용이 들어가는 <body> 태그 -->
+
+    <!-- h1 태그는 가장 중요한 제목을 나타내며, 여기서는 앱의 제목을 표시 -->
+    <h1>Simple Counter</h1>
+
+    <!-- 현재 카운터 값이 표시될 부분 -->
+    <p>Count: <span id="counterValue">{{ counter }}</span></p>
+    
+    <!-- 폼을 통해 서버에 데이터를 전송하는데 사용 -->
+    <!-- 여기서는 버튼 클릭 시 '/increment' 경로로 POST 요청을 보냄 -->
+    <form action="/increment" method="post">
+        <!-- 버튼 클릭 시 폼이 제출되며, 서버에 데이터를 전송 -->
+        <button type="submit">Increment</button>
+    </form>
+
+    <!-- 추가적인 스크립트나 초기화 코드가 필요하다면 여기에 삽입 -->
+</body>
+</html>
